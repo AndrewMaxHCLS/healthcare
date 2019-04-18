@@ -58,3 +58,21 @@ py_test(
         ":utils",
     ],
 )
+
+py_library(
+    name = "field_generating",
+    srcs = ["field_generating.py"],
+    deps = [":utils"],
+)
+
+py_test(
+    name = "field_generating_test",
+    srcs = ["field_generating_test.py"],
+    python_version = "PY3",
+    deps = [
+        requirement("absl-py"),
+        requirement("ruamel.yaml"),
+        ":field_generating",
+        ":utils",
+    ],
+)
